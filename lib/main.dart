@@ -13,18 +13,19 @@ Future<void> main() async {
     
     print('Starting app initialization...');
     
-    // Initialize Firebase
+    // Load environment variables first
+    try {
+      await dotenv.load(fileName: '.env');
+      print('Environment variables loaded successfully');
+    } catch (e) {
+      debugPrint('Warning: Could not load .env file. Using default values: $e');
+    }
+    
+    // Initialize Firebase with env variables
     await FirebaseConfig.initialize();
     
     // Setup dependency injection
     await setupDependencies();
-    
-    // Load environment variables
-    try {
-      await dotenv.load(fileName: '.env');
-    } catch (e) {
-      debugPrint('Warning: Could not load .env file. Using default values.');
-    }
     
     runApp(const MyApp());
   } catch (e) {

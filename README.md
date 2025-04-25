@@ -99,13 +99,54 @@ Swipe is a modern dating application built with Flutter that incorporates privac
      - `GoogleService-Info.plist` for iOS
 
 4. **Set up environment variables**
-   - Create a `.env` file in the root directory
-   - Add necessary environment variables (API keys, etc.)
+   - Create a `.env` file in the root directory with the following content:
+     ```
+     # Firebase Configuration
+     FIREBASE_API_KEY=your_firebase_api_key
+     FIREBASE_APP_ID=your_firebase_app_id
+     FIREBASE_MESSAGING_SENDER_ID=your_firebase_sender_id
+     FIREBASE_PROJECT_ID=your_firebase_project_id
+     FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+     
+     # Add other API keys here
+     ```
 
 5. **Run the app**
    ```bash
    flutter run
    ```
+
+## Environment Variables
+
+This project uses environment variables to keep sensitive information secure. The variables are stored in a `.env` file which is not committed to the repository for security reasons.
+
+### Setting Up Your .env File
+
+Create a `.env` file in the root directory of the project with the following variables:
+
+```
+# Firebase Configuration
+FIREBASE_API_KEY=your_firebase_api_key
+FIREBASE_APP_ID=your_firebase_app_id
+FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+FIREBASE_PROJECT_ID=your_firebase_project_id
+FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+
+# Add other API keys and sensitive information here
+# Examples:
+# MAPS_API_KEY=your_google_maps_api_key
+# MIXPANEL_TOKEN=your_mixpanel_token
+```
+
+### Security Note
+
+- **NEVER commit the .env file to your repository**
+- **DO NOT include API keys directly in the code**
+- The .env file is included in .gitignore to prevent accidental commits
+
+### For Collaborators
+
+Contact the project maintainer to get the required API keys for development.
 
 ## Project Structure
 

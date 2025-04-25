@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class FirebaseConfig {
   static FirebaseAuth? _auth;
@@ -33,8 +34,6 @@ class FirebaseConfig {
   static Future<void> initialize() async {
     try {
       print('Starting Firebase initialization...');
-      print('Project ID: destined-32484');
-      print('App ID: 1:106877368066:android:1d1b4c5f9636e46db4741b');
       
       // Check if Firebase is already initialized
       if (Firebase.apps.isNotEmpty) {
@@ -45,15 +44,28 @@ class FirebaseConfig {
       }
       
       print('Initializing new Firebase instance...');
-      final options = const FirebaseOptions(
-        apiKey: "AIzaSyCfqqcVNkx91weECAivEctgmht6hR9DlMo",
-        appId: "1:106877368066:android:1d1b4c5f9636e46db4741b",
-        messagingSenderId: "106877368066",
-        projectId: "destined-32484",
-        storageBucket: "destined-32484.appspot.com",
+      
+      // Get values from environment variables
+      final apiKey = dotenv.env['FIREBASE_API_KEY'] ?? 
+          "AIzaSyCfqqcVNkx91weECAivEctgmht6hR9DlMo"; // Fallback for development
+      final appId = dotenv.env['FIREBASE_APP_ID'] ?? 
+          "1:106877368066:android:1d1b4c5f9636e46db4741b"; // Fallback for development
+      final messagingSenderId = dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? 
+          "106877368066"; // Fallback for development
+      final projectId = dotenv.env['FIREBASE_PROJECT_ID'] ?? 
+          "destined-32484"; // Fallback for development
+      final storageBucket = dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? 
+          "destined-32484.appspot.com"; // Fallback for development
+      
+      final options = FirebaseOptions(
+        apiKey: apiKey,
+        appId: appId,
+        messagingSenderId: messagingSenderId,
+        projectId: projectId,
+        storageBucket: storageBucket,
       );
       
-      print('Initializing with options: $options');
+      print('Initializing with options from environment variables');
       await Firebase.initializeApp(options: options);
       print('Firebase initialized successfully');
       
