@@ -11,37 +11,42 @@ Swipe is a modern dating application built with Flutter that incorporates privac
 
 ## App Description
 
-Swipe redefines the online dating experience by prioritizing authenticity, security, and meaningful connections. Built with Flutter and powered by Firebase, Swipe offers a seamless cross-platform experience for iOS and Android users looking for genuine relationships.
+Swipe is a Flutter-based dating application that focuses on creating genuine connections through an intuitive, location-based matching system. Powered by Firebase backend services, the app provides a cross-platform experience for both iOS and Android users.
 
 ### Purpose and Vision
-Swipe was created to address common issues in dating apps: fake profiles, privacy concerns, and superficial connections. Our vision is to create a safe space where users can be their authentic selves and find compatible matches based on shared interests and values, not just appearances.
+Swipe addresses common dating app challenges by emphasizing user authenticity and compatibility. The application helps users find potential matches based on location proximity, gender preferences, and mutual interests, moving beyond purely appearance-based connections.
 
 ### Target Audience
-Swipe caters to singles aged 18-40 who are looking for meaningful relationships beyond casual encounters. The app appeals to privacy-conscious users who value verified profiles and authentic connections.
+The app is designed for singles looking for meaningful relationships in their geographical area. With its straightforward interface and verification through Firebase Authentication, Swipe appeals to users who want a reliable, easy-to-use dating platform.
 
-### Key Differentiators
-- **Enhanced Privacy Controls**: Users have granular control over what information is shared and with whom
-- **Verification System**: Multi-level verification process including email, phone, and optional ID verification to ensure authentic profiles
-- **Smart Matching Algorithm**: Goes beyond simple proximity-based matching to consider compatibility factors
-- **Interactive Features**: Beyond swiping, users can participate in icebreaker games and guided conversation starters
-- **Safe Communication**: End-to-end encrypted chat with the ability to share disappearing media
-- **Anti-Harassment Measures**: Advanced reporting system and AI-assisted message screening
+### Key Features
+- **Profile Management**: Users can create detailed profiles with multiple photos and personal information
+- **Location-based Matching**: The app uses Geolocator to find potential matches within a configurable radius
+- **Preference Filtering**: Matching algorithm considers gender preferences and previously viewed profiles
+- **Real-time Chat**: Firebase-powered messaging system for communication between matched users
+- **Match Management**: Users can view and manage their matches in a dedicated section
 
 ### Technical Foundation
-The app is built on a solid technical foundation with Flutter providing a beautiful, responsive UI and Firebase handling backend operations including authentication, real-time database, storage, and analytics. The app follows clean architecture principles for maintainability and scalability.
+The app is built with Flutter for the frontend, providing a responsive and visually consistent UI across platforms. Firebase services handle the backend operations, including:
+- Authentication (Firebase Auth)
+- Data storage (Cloud Firestore)
+- Media storage (Firebase Storage)
+- Notifications (Firebase Messaging)
+- Analytics (Firebase Analytics)
+
+The codebase follows a structured architecture with separate presentation, domain, and data layers for maintainability and scalability.
 
 ### User Experience
-From the moment users open Swipe, they're guided through an intuitive onboarding process that helps them create compelling profiles. The interface is designed to be both visually appealing and functional, with smooth animations and thoughtful micro-interactions that enhance the dating experience.
+The app features a tabbed interface with dedicated sections for discovering new matches, viewing existing matches, messaging, and profile management. The card-swiping discovery mechanism provides an intuitive way to express interest or pass on potential matches, while animations and transitions create a smooth, engaging experience.
 
 ## Features
 
 - **Card-based Profile Swiping**: Intuitive card swiping interface for discovering potential matches
-- **Real-time Chat**: Integrated messaging system for matched users with read receipts and media sharing
-- **Profile Customization**: Detailed profile editing with multiple photos, interests, and preferences
-- **User Verification**: Secure authentication and profile verification to ensure authentic users
-- **Match Recommendations**: Smart matching algorithm based on preferences, gender, and location
-- **Activity Tracking**: Notifications and activity feed for user interactions (likes, matches, messages)
-- **Filters**: Customizable filters for finding ideal matches based on age, distance, interests, etc.
+- **Real-time Chat**: Integrated messaging system for matched users
+- **Profile Customization**: Profile editing with photos, interests, and preferences
+- **User Authentication**: Secure authentication through Firebase Auth
+- **Match Recommendations**: Matching algorithm based on location, gender preferences, and swipe history
+- **Activity Tracking**: Notifications for new matches and messages
 - **Location-based Matching**: Discover users within specified radius (default 50km)
 
 ## App Flow
